@@ -29,3 +29,7 @@ body {
   right: 3% !important;
   z-index: 1;
 }
+
+.background {
+  background-size: 100% auto;
+}

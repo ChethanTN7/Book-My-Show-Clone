@@ -5,38 +5,76 @@ import { NextArrow, PrevArrow } from "./Arrows.Component";
 const HeroCarousel = () => {
   const [images, setImages] = useState([
     {
-      adult: false,
-      backdrop_path: "/ugS5FVfCI3RV0ZwZtBV3HAV75OX.jpg",
-      genre_ids: [16, 878, 28],
-      id: 610150,
-      original_language: "ja",
-      original_title: "ドラゴンボール超 スーパーヒーロー",
+      backdrop_path: "/dF6FjTZzRTENfB4R17HDN20jLT2.jpg",
+      id: 135397,
+      title: "Jurassic World",
+      original_title: "Jurassic World",
       overview:
-        "The Red Ribbon Army, an evil organization that was once destroyed by Goku in the past, has been reformed by a group of people who have created new and mightier Androids, Gamma 1 and Gamma 2, and seek vengeance against Goku and his family.",
-      popularity: 5953.989,
-      poster_path: "/rugyJdeoJm7cSJL1q4jBpTNbxyU.jpg",
-      release_date: "2022-06-11",
-      title: "Dragon Ball Super: Super Hero",
+        "Twenty-two years after the events of Jurassic Park, Isla Nublar now features a fully functioning dinosaur theme park, Jurassic World, as originally envisioned by John Hammond.",
+      poster_path: "/A0LZHXUzo5C60Oahvt7VxvwuzHw.jpg",
+      media_type: "movie",
+      adult: false,
+      original_language: "en",
+      genre_ids: [28, 12, 878, 53],
+      popularity: 91.501,
+      release_date: "2015-06-06",
       video: false,
-      vote_average: 8,
-      vote_count: 1426,
+      vote_average: 6.691,
+      vote_count: 20238,
     },
     {
-      adult: false,
-      backdrop_path: "/rqgeBNWXas1yrAyXxwi9CahfScx.jpg",
-      genre_ids: [53],
-      id: 985939,
-      original_language: "en",
-      original_title: "Fall",
+      backdrop_path: "/79bJL9ydAMYVltuNTt4VhxORqIz.jpg",
+      id: 329,
+      title: "Jurassic Park",
+      original_title: "Jurassic Park",
       overview:
-        "For best friends Becky and Hunter, life is all about conquering fears and pushing limits. But after they climb 2,000 feet to the top of a remote, abandoned radio tower, they find themselves stranded with no way down. Now Becky and Hunter’s expert climbing skills will be put to the ultimate test as they desperately fight to survive the elements, a lack of supplies, and vertigo-inducing heights.",
-      popularity: 6731.327,
-      poster_path: "/9f5sIJEgvUpFv0ozfA6TurG4j22.jpg",
-      release_date: "2022-08-11",
-      title: "Fall",
+        "A wealthy entrepreneur secretly creates a theme park featuring living dinosaurs drawn from prehistoric DNA. Before opening day, he invites a team of experts and his two eager grandchildren to experience the park and help calm anxious investors. However, the park is anything but amusing as the security systems go off-line and the dinosaurs escape.",
+      poster_path: "/oU7Oq2kFAAlGqbU4VoAE36g4hoI.jpg",
+      media_type: "movie",
+      adult: false,
+      original_language: "en",
+      genre_ids: [12, 878],
+      popularity: 41.229,
+      release_date: "1993-06-11",
       video: false,
-      vote_average: 7.4,
-      vote_count: 346,
+      vote_average: 7.951,
+      vote_count: 16180,
+    },
+    {
+      backdrop_path: "/3P52oz9HPQWxcwHOwxtyrVV1LKi.jpg",
+      id: 383498,
+      title: "Deadpool 2",
+      original_title: "Deadpool 2",
+      overview:
+        "Wisecracking mercenary Deadpool battles the evil and powerful Cable and other bad guys to save a boy's life.",
+      poster_path: "/to0spRl1CMDvyUbOnbb4fTk3VAd.jpg",
+      media_type: "movie",
+      adult: false,
+      original_language: "en",
+      genre_ids: [28, 35, 12],
+      popularity: 104.852,
+      release_date: "2018-05-10",
+      video: false,
+      vote_average: 7.493,
+      vote_count: 17812,
+    },
+    {
+      backdrop_path: "/mabuNsGJgRuCTuGqjFkWe1xdu19.jpg",
+      id: 260513,
+      title: "Incredibles 2",
+      original_title: "Incredibles 2",
+      overview:
+        "Elastigirl springs into action to save the day, while Mr. Incredible faces his greatest challenge yet – taking care of the problems of his three children.",
+      poster_path: "/9lFKBtaVIhP7E2Pk0IY1CwTKTMZ.jpg",
+      media_type: "movie",
+      adult: false,
+      original_language: "en",
+      genre_ids: [28, 12, 16, 10751],
+      popularity: 76.24,
+      release_date: "2018-06-14",
+      video: false,
+      vote_average: 7.464,
+      vote_count: 12762,
     },
   ]);
 
@@ -72,9 +110,9 @@ const HeroCarousel = () => {
     <>
       <div className="lg:hidden">
         <HeroSlider {...settings}>
-          {images.map((image) => {
+          {images.map((image, index) => {
             return (
-              <div className="w-full h-56 md:h-80 py-3" /*key={index}*/>
+              <div className="w-full h-66 md:h-80 py-3" key={index}>
                 <img
                   src={`https://image.tmdb.org/t/p/original${image.backdrop_path}`}
                   alt="Hero banner"
@@ -87,9 +125,9 @@ const HeroCarousel = () => {
       </div>
       <div className="hidden lg:block">
         <HeroSlider {...settingsLG}>
-          {images.map((image) => {
+          {images.map((image, index) => {
             return (
-              <div className="w-full h-56 md:h-80 py-3" /*key={index}*/>
+              <div className="w-full h-66 md:h-80 py-3" key={index}>
                 <img
                   src={`https://image.tmdb.org/t/p/original${image.backdrop_path}`}
                   alt="Hero banner"

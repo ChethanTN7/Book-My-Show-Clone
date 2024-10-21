@@ -1,6 +1,7 @@
 import "./App.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import axios from "axios";
 
 import { Routes, Route } from "react-router-dom";
 
@@ -8,6 +9,10 @@ import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/Home.Page";
 import PlayPage from "./pages/Play.Page";
 import MoviePage from "./pages/Movie.Page";
+
+axios.defaults.baseURL = "https://api.themoviedb.org/3";
+axios.defaults.params = {};
+axios.defaults.params["api_key"] = process.env.REACT_APP_API_KEY;
 
 function App() {
   return (
