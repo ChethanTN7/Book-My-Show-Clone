@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { BiChevronDown, BiMenu, BiSearch } from "react-icons/bi";
+import { Link, useNavigate } from "react-router-dom";
 
 function NavSm() {
   return (
@@ -22,46 +23,76 @@ function NavSm() {
 }
 
 function NavMd() {
+  const navigate = useNavigate();
+  const [input, setInput] = useState("");
   return (
     <>
-      <div className="w-10 h-10">
-        <img
-          src="https://i.ibb.co/zPBYW3H/imgbin-bookmyshow-office-android-ticket-png.png"
-          alt="logo"
-          className="w-full h-full"
-        />
+      <div className="w-36 h-10">
+        <Link to={"/"}>
+          <img
+            src="https://in.bmscdn.com/webin/common/icons/logo.svg"
+            alt="logo"
+            className="w-full h-full"
+          />
+        </Link>
       </div>
-      <div className="w-full flex items-center gap-3 bg-white px-3 py-1 rounded-md">
-        <BiSearch />
+      <div className="w-full flex items-center gap-3 bg-white pl-3 pr-1.5 rounded-md">
+        <BiSearch fontSize={25} />
         <input
           type="search"
           className="w-full bg-transparent border-none focus:outline-none"
           placeholder="Search for movies, events, plays, sports and activites"
+          onInput={(e) => setInput(e.target.value.trim())}
+          onKeyPress={(e) => {
+            if (e.key === "Enter") {
+              navigate(input === "" ? "" : `/search/${input}`);
+            }
+          }}
         />
+        <Link to={input === "" ? "" : `/search/${input}`}>
+          <button className="h-full bg-red-500 px-2 w-24 rounded text-white">
+            Search
+          </button>
+        </Link>
       </div>
     </>
   );
 }
 
 function NavLg() {
+  const navigate = useNavigate();
+  const [input, setInput] = useState("");
   return (
     <>
       <div className="container flex mx-auto px-4 items-center justify-between">
         <div className="flex items-center w-1/2 gap-3">
-          <div className="w-10 h-10">
-            <img
-              src="https://i.ibb.co/zPBYW3H/imgbin-bookmyshow-office-android-ticket-png.png"
-              alt="logo"
-              className="w-full h-full"
-            />
+          <div className="w-36 h-10">
+            <Link to={"/"}>
+              <img
+                src="https://in.bmscdn.com/webin/common/icons/logo.svg"
+                alt="logo"
+                className="w-full h-full"
+              />
+            </Link>
           </div>
-          <div className="w-full flex items-center gap-3 bg-white px-3 py-1 rounded-md">
-            <BiSearch />
+          <div className="w-full flex items-center gap-3 bg-white pl-3 pr-1.5 py-1 rounded-md">
+            <BiSearch fontSize={25} />
             <input
               type="search"
               className="w-full bg-transparent border-none focus:outline-none "
               placeholder="Search for movies, events, plays, sports and activites"
+              onInput={(e) => setInput(e.target.value.trim())}
+              onKeyPress={(e) => {
+                if (e.key === "Enter") {
+                  navigate(input === "" ? "" : `/search/${input}`);
+                }
+              }}
             />
+            <Link to={input === "" ? "" : `/search/${input}`}>
+              <button className="h-full w-24 bg-red-500 px-2 rounded text-white">
+                Search
+              </button>
+            </Link>
           </div>
         </div>
         <div className="flex items-center gap-3">

@@ -19,9 +19,13 @@ const MoviePage = () => {
   const [recommondedMovies, setRecommondedMovies] = useState([]);
 
   useEffect(() => {
+    window.scroll(0, 0);
+  }, [id]);
+
+  useEffect(() => {
     const requestCast = async () => {
       const getCast = await axios.get(`/movie/${id}/credits`);
-      setCast(getCast.data.cast);
+      setCast(getCast.data.cast.concat(getCast.data.crew));
     };
     requestCast();
   }, [id]);
@@ -148,6 +152,8 @@ const MoviePage = () => {
                 image={castData.profile_path}
                 castName={castData.original_name}
                 role={castData.character}
+                id={castData.id}
+                department={castData.department}
                 key={index}
               />
             ))}

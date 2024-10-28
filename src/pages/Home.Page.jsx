@@ -13,6 +13,10 @@ const HomePage = () => {
   const [premierMovies, setPremierMovies] = useState([]);
   const [onlineStreamEvents, setOnlineStreamEvents] = useState([]);
 
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, [recommondedMovies]);
+
   // Recommonded Movies
   useEffect(() => {
     const requestTopRatedMovies = async () => {
